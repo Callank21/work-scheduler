@@ -10,10 +10,14 @@ for (var i = 0; i < form.length; i++) {
     if (dayjs(date).format('HH') > form[i].dataset.time) {
         form[i].classList.add("past");
     }
-    else if (dayjs(date).format('HH') == form[i].dataset.time) {
+    if (dayjs(date).format('HH') == form[i].dataset.time) {
         form[i].classList.add("present");
     }
-    else if (dayjs(date).format('HH') < form[i].dataset.time) {
+    if (dayjs(date).format('HH') < form[i].dataset.time) {
         form[i].classList.add("future");
     }
 }
+$(".time-block").on("shown.bs.modal", function() {
+    // highlight textarea
+    $(".description").trigger("focus");
+  });
